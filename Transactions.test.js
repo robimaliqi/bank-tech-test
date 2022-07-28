@@ -4,7 +4,7 @@ describe("transactions", () => {
   describe("showBalance", () => {
     it('returns a default balance of 0', () => {
       const transaction = new Transactions();
-      expect(transaction.showBalance()).toEqual(0)
+      expect(transaction.showBalance()).toEqual(0.00)
     })
   })
 
@@ -12,7 +12,7 @@ describe("transactions", () => {
     it('returns a new balance when the user deposits money using the debit function', () => {
       const transaction = new Transactions();
       transaction.debit(1000)
-      expect(transaction.showBalance()).toEqual(1000)
+      expect(transaction.showBalance()).toEqual(1000.00)
     })
   })
 
@@ -37,8 +37,8 @@ describe("transactions", () => {
       transaction.debit(2000)
       transaction.credit(1000)
       expect(transaction.showHistory())
-        .toEqual([{"date": date, "debit": 2000, "balance": 2000}, 
-                  {"date": date, "credit": 1000, "balance": 1000}])
+        .toEqual([{"date": date, "debit": "2000.00", "balance": "2000.00"}, 
+                  {"date": date, "credit": "1000.00", "balance": "1000.00"}])
     })
   })
 })
