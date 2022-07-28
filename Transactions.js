@@ -4,6 +4,10 @@ class Transactions {
     this.history = [];
   }
 
+  debit(amount) {
+    this.balance += amount
+  }
+
   showHistory() {
     return this.history;
   }
