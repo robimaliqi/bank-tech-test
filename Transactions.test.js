@@ -16,9 +16,18 @@ describe("transactions", () => {
   })
 
   describe("debit", () => {
-    it('returns a amount when the user inputs money using the debit function', () => {
+    it('returns a new balance when the user deposits money using the debit function', () => {
       const transaction = new Transactions();
       transaction.debit(1000)
+      expect(transaction.showBalance()).toEqual(1000)
+    })
+  })
+
+  describe("credit", () => {
+    it('returns a new balance when the user withdraws money using the debit function', () => {
+      const transaction = new Transactions();
+      transaction.debit(2000)
+      transaction.credit(1000)
       expect(transaction.showBalance()).toEqual(1000)
     })
   })
