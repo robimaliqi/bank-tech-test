@@ -9,6 +9,7 @@ class Transactions {
     this.balance -= amount
     this.history.push({
       date: this.date,
+      debit: null,
       credit: amount.toFixed(2),
       balance: this.balance.toFixed(2)
     })
@@ -19,6 +20,7 @@ class Transactions {
     this.history.push({
       date: this.date,
       debit: amount.toFixed(2),
+      credit: null,
       balance: this.balance.toFixed(2)
     })
   }
@@ -46,6 +48,7 @@ module.exports = Transactions;
 const transaction = new Transactions()
 transaction.debit(1000)
 transaction.debit(2000)
+transaction.credit(500)
 transaction.credit(500)
 
 console.log(transaction.showStatement())
