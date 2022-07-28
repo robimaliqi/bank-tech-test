@@ -6,9 +6,11 @@
 //   }
 
 //   showStatement() {
-//     const result = this.transaction.map(a => `(${ Object.values(a).join(", ") })`)
+
+//     .map(a => `(${ Object.values(a).join(", ") })`)
 //     .join(", ")
-//     return result
+//     this.transaction.debit()
+//     return this.transaction.showHistory()
 //   }
 // }
 // const statement = new Account();

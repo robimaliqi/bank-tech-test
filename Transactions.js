@@ -34,12 +34,11 @@ class Transactions {
   }
 
   showStatement() {
-    
-    const result = this.history.reverse().map(a => `${ Object.values(a).join(" || ") }`)
+    const result = this.history
+    .reverse().map(a => `${ Object.values(a).join(" || ") }`)
     .join("\n")
     return 'date || credit || debit || balance\n' + result
   }
-
 }
 
 module.exports = Transactions;
