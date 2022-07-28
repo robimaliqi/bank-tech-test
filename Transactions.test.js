@@ -33,11 +33,12 @@ describe("transactions", () => {
 
     it('returns an array of a credit transaction and a debit transaction', () => {
       const transaction = new Transactions();
+      const date = new Date ().toLocaleDateString()
       transaction.debit(2000)
       transaction.credit(1000)
       expect(transaction.showHistory())
-        .toEqual([{"date": "28/07/2022", "debit": 2000, "balance": 2000}, 
-                  {"date": "28/07/2022", "credit": 1000, "balance": 1000}])
+        .toEqual([{"date": date, "debit": 2000, "balance": 2000}, 
+                  {"date": date, "credit": 1000, "balance": 1000}])
     })
   })
 })
