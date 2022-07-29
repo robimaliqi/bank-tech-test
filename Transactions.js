@@ -33,21 +33,20 @@ class Transactions {
     return this.balance;
   }
 
-  showStatement() {
-    const result = this.history
-    .reverse().map(a => `${ Object.values(a).join(" || ") }`)
-    .join("\n")
-    return 'date || credit || debit || balance\n' + result
-  }
+  // showStatement() {
+  //   const result = this.history
+  //   .reverse().map(a => `${ Object.values(a).join(" || ") }`)
+  //   .join("\n")
+  //   return 'date || credit || debit || balance\n' + result
+  // }
 }
 
 module.exports = Transactions;
 
 
-const transaction = new Transactions()
-transaction.debit(1000)
-transaction.debit(2000)
-transaction.credit(500)
-transaction.credit(500)
+// const transaction = new Transactions()
+// transaction.debit(1000)
+// transaction.debit(2000)
+// transaction.credit(500)
 
-console.log(transaction.showStatement())
+// console.log(transaction.showStatement())

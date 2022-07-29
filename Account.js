@@ -1,24 +1,24 @@
-// const Transactions = require('./Transactions')
+const Transactions = require('./Transactions')
 
-// class Account {
-//   constructor() {
-//     this.transaction = new Transactions();
-//   }
+class Statement {
+  constructor(transaction) {
+    this.transaction = transaction;
+  }
 
-//   showStatement() {
+  showStatement() {
+    const result = this.transaction.showHistory()
+    .reverse().map(a => `${ Object.values(a).join(" || ") }`)
+    .join("\n")
+    return 'date || credit || debit || balance\n' + result
+  }
+}
 
-//     .map(a => `(${ Object.values(a).join(", ") })`)
-//     .join(", ")
-//     this.transaction.debit()
-//     return this.transaction.showHistory()
-//   }
-// }
-// const statement = new Account();
-// const transaction = new Transactions()
-// transaction.debit(2000)
+const transaction = new Transactions()
+transaction.debit(1000)
+transaction.debit(2000)
+transaction.credit(500)
 // console.log(transaction.showHistory())
+const statement = new Statement(transaction);
+console.log(statement.showStatement())
 
-
-// console.log(statement.showStatement())
-
-// module.exports = Account;
+module.exports = Account;
