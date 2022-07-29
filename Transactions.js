@@ -1,28 +1,30 @@
 class Transactions {
-  constructor () {
+  constructor() {
     this.balance = 0;
     this.history = [];
     this.date = new Date().toLocaleDateString();
   }
 
   credit(amount) {
-    this.balance -= amount
-    this.history.push({
+    this.balance -= amount;
+    const credit = this.history.push({
       date: this.date,
       debit: null,
       credit: amount.toFixed(2),
-      balance: this.balance.toFixed(2)
-    })
+      balance: this.balance.toFixed(2),
+    });
+    return credit;
   }
 
   debit(amount) {
-    this.balance += amount
-    this.history.push({
+    this.balance += amount;
+    const debit = this.history.push({
       date: this.date,
       debit: amount.toFixed(2),
       credit: null,
-      balance: this.balance.toFixed(2)
-    })
+      balance: this.balance.toFixed(2),
+    });
+    return debit;
   }
 
   showHistory() {
@@ -42,7 +44,6 @@ class Transactions {
 }
 
 module.exports = Transactions;
-
 
 // const transaction = new Transactions()
 // transaction.debit(1000)
